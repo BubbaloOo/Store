@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda increible</title>
+    <link rel="stylesheet" href="Assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <!-- Muevo el botón de menú a la izquierda, antes del logo -->
+            <button id="menu-button" class="menu-btn">☰</button>
+            <a id="nav-3" href="#" class="logo">LOGOOOOoo</a>
+            <button id="nav-6"><img src="/Assets/images/car.png" width="27px" alt="Car"></button>
+            <button id="nav-7"><img src="/Assets/images/icon-user.png" width="27px" alt="User"></button>
+        </div>
+    </nav>
+
+    <!-- Menú Desplegable -->
+    <div id="menu-dropdown" class="menu-dropdown">
+        <ul>
+            <li><a href="#">Categoría 1</a></li>
+            <li><a href="#">Categoría 2</a></li>
+            <li><a href="#">Categoría 3</a></li>
+            <li><a href="#">Categoría 4</a></li>
+            <li><a href="#">Categoría 5</a></li>
+            <li><a href="#">Categoría 6</a></li>
+        </ul>
+    </div>
+
+    <div id="ofertas-container">
+        <div id="ofertas">
+            <div class="oferta-item">
+                <img src="Assets/images/1.jpg" alt="a">
+            </div>
+            <div class="oferta-item">
+                <img src="Assets/images/ejemplo-oferta-2.jpg" alt="a">
+            </div>
+            <div class="oferta-item">
+                <img src="Assets/images/ejemplo-oferta-3.jpg" alt="a">
+            </div>
+            <div class="oferta-item">
+                <img src="Assets/images/ejemplo-oferta-4.jpg" alt="a">
+            </div>
+        </div>
+        <!-- Botones de control -->
+        <button class="carousel-control-prev" onclick="moveCarousel('prev')">&#10094;</button>
+        <button class="carousel-control-next" onclick="moveCarousel('next')">&#10095;</button>
+    </div>
+
+    <script src="Assets/scripts/index.js"></script>
+</body>
+</html>

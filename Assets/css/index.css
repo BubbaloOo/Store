@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+body {
+    background-color: #F5F5F7;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    color: none;
+}
+
+/* Estilos para el nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #F5F5F7; /* Color inicial */
+    transition: background-color 0.3s ease-in-out; /* Para transición suave */
+}
+
+/* Logos e íconos en el nav */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-links a,
+.nav-links button {
+    padding: 12px;
+}
+
+#nav-3 {
+    font-weight: bold;
+    flex-grow: 1; /* Esto ayuda a que el logo se centre */
+    text-align: center;
+}
+
+/* Cambiar color al hacer scroll */
+.nav-scrolled {
+    background-color: #ffffff; /* Color al hacer scroll */
+}
+
+/* Estilos para el contenedor de ofertas */
+#ofertas-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    top: 100px;
+}
+
+#ofertas {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.oferta-item {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+}
+
+#ofertas img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+#ofertas-container {
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Estilos para el menú desplegable */
+.menu-dropdown {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    background-color: #F5F5F7; /* Color inicial */
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+    width: 220px;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.menu-dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-dropdown ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.menu-dropdown ul li {
+    margin: 10px 0;
+}
+
+.menu-dropdown ul li a {
+    color: #000;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    font-weight: bold;
+}
+
+.menu-dropdown ul li a:hover {
+    background-color: #F5F5F7;
+}
+
+/* Estilo animado para el botón de menú */
+.menu-btn {
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+    padding: 10px;
+}
+
+.menu-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Media queries para hacer que el diseño sea responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    #nav-1, #nav-2, #nav-4, #nav-5, #nav-6, #nav-7 {
+        padding: 10px;
+    }
+
+    #nav-3 {
+        font-size: 18px;
+    }
+
+    .menu-dropdown {
+        left: 10px;
+    }
+}
