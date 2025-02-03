@@ -1,19 +1,3 @@
-let currentIndex = 0;
-
-function moveCarousel(direction) {
-    const items = document.querySelectorAll('.oferta-item');
-    const totalItems = items.length;
-
-    if (direction === 'next') {
-        currentIndex = (currentIndex + 1) % totalItems;
-    } else if (direction === 'prev') {
-        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-    }
-
-    const newTransform = -currentIndex * 100;
-    document.querySelector('#ofertas').style.transform = `translateX(${newTransform}%)`;
-}
-
 // Agregar la clase nav-scrolled cuando se haga scroll
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
@@ -104,3 +88,4 @@ document.getElementById('menu-button').addEventListener('click', function() {
         menu.style.boxShadow = 'none'; // Eliminar sombra
     }
 });
+

@@ -65,9 +65,25 @@ nav {
 }
 
 #nav-3 {
-    font-weight: bold;
     flex-grow: 1; /* Esto ayuda a que el logo se centre */
     text-align: center;
+    padding-left: 4vw;
+    animation: fadeIn 2.4s ;
+}
+
+/* Animación icono */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
+    }
+    50% {
+        filter: drop-shadow(0px 10px 15px rgba(0, 38, 255, 0.5));
+    }
+    100% {
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
 /* Cambiar color al hacer scroll */
@@ -78,11 +94,11 @@ nav {
 /* Estilos para el contenedor de ofertas */
 #ofertas-container {
     position: relative;
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    overflow: hidden;
-    top: 100px;
+    width: 1000px;  /* Ancho fijo */ 
+    height: 500px;  /* Alto fijo */ 
+    margin: auto; 
+    overflow: hidden; 
+    top: 100px; 
 }
 
 #ofertas {
@@ -92,68 +108,51 @@ nav {
 
 .oferta-item {
     flex-shrink: 0;
-    width: 100%;
-    height: auto;
+    width: 100%;  /* Hace que cada ítem ocupe el 100% del contenedor */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #ofertas img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    padding: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.carousel-control-prev {
-    left: 20px;
-}
-
-.carousel-control-next {
-    right: 20px;
-}
-
-#ofertas-container {
-    border-radius: 12px;
-    padding: 20px;
+    width: 100%;  /* Hace que la imagen ocupe todo el ancho del contenedor */
+    height: 100%;  /* Hace que la imagen ocupe todo el alto del contenedor */
+    object-fit:fill;  /* La imagen cubre el área sin distorsionarse y recorta los bordes si es necesario */
+    object-position: center;  /* Centra la imagen dentro del contenedor */
+    max-width: 1000px;  /* Asegura que no se extienda más allá de los 1000px de ancho */
+    max-height: 500px;  /* Asegura que no se extienda más allá de los 500px de alto */
 }
 
 /* Estilos para el menú desplegable */
+/* Menú Desplegable */
 .menu-dropdown {
     display: none;
-    position: fixed;
-    top: 60px;
-    left: 20px;
-    background-color: #F5F5F7; /* Color inicial */
+    position: absolute; /* Para que se posicione relativo al nav */
+    top: 60px; /* Ajusta según la altura del nav */
+    left: 0; /* Alinea al lado izquierdo del nav */
+    background-color: #F5F5F7; /* Color de fondo */
     border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
     width: 220px;
-    z-index: 999;
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* Mostrar menú cuando se añade la clase 'show' */
 .menu-dropdown.show {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Estilo de los enlaces en el menú */
 .menu-dropdown ul {
     list-style: none;
-    padding: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-dropdown ul li {
@@ -169,10 +168,10 @@ nav {
 }
 
 .menu-dropdown ul li a:hover {
-    background-color: #F5F5F7;
+    background-color: #ddd; /* Un fondo al pasar el ratón */
 }
 
-/* Estilo animado para el botón de menú */
+/* Estilo para el botón de menú */
 .menu-btn {
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
@@ -185,6 +184,9 @@ nav {
 
 /* Media queries para hacer que el diseño sea responsive */
 @media (max-width: 768px) {
+    #ofertas-container {
+        height: 40vw;  /* Ajusta la altura para pantallas más pequeñas */
+    }
     .nav-links {
         flex-direction: column;
         align-items: center;
@@ -200,4 +202,68 @@ nav {
     .menu-dropdown {
         left: 10px;
     }
+}
+#flex-menu {
+    position: fixed; /* Fija el contenedor respecto a la ventana */
+}
+
+
+.menu-dropdown ul li:hover {
+    box-shadow: 1px 1px 13px rgb(184, 183, 183);
+}
+
+
+#carousel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    position: fixed;
+    top: 120px; /* Para separarlo del nav */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 70%;
+    z-index: 999;
+    padding: 10px;
+}
+
+/* Estilos de los cuadros */
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    background-color: #bbb;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.large {
+    background-color: #F5A623; /* Color para los cuadros grandes */
+}
+
+.small {
+    background-color: #8B5CF6; /* Color para los cuadros pequeños */
+}
+
+.top {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.bottom {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.left {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.right {
+    grid-column: 3;
+    grid-row: 1 / span 2;
 }

@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
 </head>
 <body>
     <nav>
         <div class="nav-links">
             <!-- Muevo el botón de menú a la izquierda, antes del logo -->
             <button id="menu-button" class="menu-btn">☰</button>
-            <a id="nav-3" href="#" class="logo">LOGOOOOoo</a>
+            <a id="nav-3" href="#" class="logo"><img src="Assets/images/logo.png" width="57px"></a>
             <button id="nav-6"><img src="/Assets/images/car.png" width="27px" alt="Car"></button>
             <button id="nav-7"><img src="/Assets/images/icon-user.png" width="27px" alt="User"></button>
         </div>
@@ -32,26 +33,16 @@
         </ul>
     </div>
 
-    <div id="ofertas-container">
-        <div id="ofertas">
-            <div class="oferta-item">
-                <img src="Assets/images/1.jpg" alt="a">
-            </div>
-            <div class="oferta-item">
-                <img src="Assets/images/ejemplo-oferta-2.jpg" alt="a">
-            </div>
-            <div class="oferta-item">
-                <img src="Assets/images/ejemplo-oferta-3.jpg" alt="a">
-            </div>
-            <div class="oferta-item">
-                <img src="Assets/images/ejemplo-oferta-4.jpg" alt="a">
-            </div>
-        </div>
-        <!-- Botones de control -->
-        <button class="carousel-control-prev" onclick="moveCarousel('prev')">&#10094;</button>
-        <button class="carousel-control-next" onclick="moveCarousel('next')">&#10095;</button>
-    </div>
+    <section id="carousel">
+        <div class="carousel-item large left">Cuadro grande izquierda</div>
+        <div class="carousel-item small top">Cuadro pequeño arriba</div>
+        <div class="carousel-item small bottom">Cuadro pequeño abajo</div>
+        <div class="carousel-item large right">Cuadro grande derecha</div>
+    </section>
+    
 
+
+    <script src="Assets/scripts/scripts.js"></script>
     <script src="Assets/scripts/index.js"></script>
 </body>
 </html>
