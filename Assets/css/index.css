@@ -267,3 +267,19 @@ nav {
     grid-column: 3;
     grid-row: 1 / span 2;
 }
+
+#pedirdatos{
+    background-color: rgb(211, 211, 211);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    position: fixed;
+    top: 500px;
+    z-index: 1000;
+    padding: 10px;
+}
+#pedirdatos:hover{
+    background-color: white;
+    border: 1px solid black;
+}

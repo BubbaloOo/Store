@@ -1,26 +1,20 @@
-// Crea el cliente de Supabase correctamente
-const supabaseClient = supabase.createClient(
-    'https://punmfuzrxbujkosdsdvl.supabase.co',  // URL de tu proyecto
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1bm1mdXpyeGJ1amtvc2RzZHZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczODM2Mjk0MSwiZXhwIjoyMDUzOTM4OTQxfQ.fRgOwS1P2XorCdiNZKp-erN8lS28gdqS_lZdU9kTJvM'  // Tu anon key
-  );
-  
-  // Función para obtener datos de la tabla "BB-STORE"
-  async function obtenerDatos(id) {
-    const { data, error } = await supabaseClient
-      .from('BB-STORE')  // Nombre de la tabla
-      .select('activo')  // Obtiene solo la columna "activo"
-      .eq('id', id)  // Filtra por el id específico
-      .single();  // Espera solo un registro (una sola fila)
-  
-    if (error) {
-      console.error('Error:', error);
-    } else if (data) {
-      alert(data.activo);  // Muestra el valor de "activo" si el registro existe
-    } else {
-      alert('No se encontró ningún registro con id ' + id);  // Muestra un mensaje si no se encontró el registro
-    }
-  }
-  
+function pedirDatos() {
+  const backend = document.createElement("iframe");
+  backend.src = "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/";  // 🔹 Cambia esto por la URL del Backend Patito
+  backend.style.display = "none";
+  document.body.appendChild(backend);
 
-  obtenerDatos(1);  // Llamar la función para obtener los datos
-  
+  backend.onload = function () {
+      backend.contentWindow.postMessage({ id: 1 }, "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/"); // 🔹 Cambia esto por la URL del Backend Patito
+  };
+
+  window.addEventListener("message", (event) => {
+      if (event.origin !== "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/") return;  // 🔹 Cambia esto por la URL del Backend Patito
+
+      if (event.data.error) {
+          document.getElementById("resultado").innerText = "Error: " + event.data.error;
+      } else {
+          document.getElementById("resultado").innerText = "Activo: " + event.data.activo;
+      }
+  });
+}
