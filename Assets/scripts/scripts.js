@@ -9,12 +9,16 @@ function pedirDatos() {
   };
 
   window.addEventListener("message", (event) => {
-      if (event.origin !== "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/") return;  // 🔹 Cambia esto por la URL del Backend Patito
+    console.log("Mensaje recibido desde backend:", event.data);
+    
+    if (event.origin !== "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/") return;
 
-      if (event.data.error) {
-          document.getElementById("resultado").innerText = "Error: " + event.data.error;
-      } else {
-          document.getElementById("resultado").innerText = "Activo: " + event.data.activo;
-      }
-  });
+    if (event.data.error) {
+        alert("Error: " + event.data.error);
+    } else {
+        alert("Hola papu, este es tu papu texto: " + event.data.activo);
+    }
+});
+
 }
+
