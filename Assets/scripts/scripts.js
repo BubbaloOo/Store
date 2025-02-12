@@ -1,24 +1,11 @@
-function pedirDatos() {
-  const backend = document.createElement("iframe");
-  backend.src = "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/";  // 🔹 Cambia esto por la URL del Backend Patito
-  backend.style.display = "none";
-  document.body.appendChild(backend);
+document.getElementById('getDataBtn').addEventListener('click', async function() {
+    // Llamar a la API del backend
+    const response = await fetch('https://backend-bb.vercel.app/');
+    const data = await response.json();  // Suponiendo que el backend retorna JSON
 
-  backend.onload = function () {
-      backend.contentWindow.postMessage({ id: 1 }, "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/"); // 🔹 Cambia esto por la URL del Backend Patito
-  };
-
-  window.addEventListener("message", (event) => {
-    console.log("Mensaje recibido desde backend:", event.data);
-    
-    if (event.origin !== "https://backend-kc8caeseg-backend-bbs-projects.vercel.app/") return;
-
-    if (event.data.error) {
-        alert("Error: " + event.data.error);
+    if (data && data.activo) {
+        alert('Valor de activo: ' + data.activo);  // Muestra el valor de "activo"
     } else {
-        alert("Hola papu, este es tu papu texto: " + event.data.activo);
+        alert('No se pudo obtener datos');
     }
 });
-
-}
-
