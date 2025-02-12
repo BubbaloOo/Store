@@ -8,4 +8,4 @@ document.getElementById('getDataBtn').addEventListener('click', async function()
     } else {
         alert('No se pudo obtener datos');
     }
-});
+}); 

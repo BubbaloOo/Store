@@ -268,7 +268,7 @@ nav {
     grid-row: 1 / span 2;
 }
 
-#pedirdatos{
+#getDataBtn{
     background-color: rgb(211, 211, 211);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -279,7 +279,7 @@ nav {
     z-index: 1000;
     padding: 10px;
 }
-#pedirdatos:hover{
+#getDataBtn:hover{
     background-color: white;
     border: 1px solid black;
 }
