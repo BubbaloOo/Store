@@ -1,11 +1,17 @@
-document.getElementById('getDataBtn').addEventListener('click', async function() {
-    // Llamar a la API del backend
-    const response = await fetch('https://backend-bb.vercel.app/');
-    const data = await response.json();  // Suponiendo que el backend retorna JSON
+async function pedirDatos() {
+    try {
+        const response = await fetch('https://backend-bb.vercel.app/');
+        const data = await response.json(); // Asumiendo que el backend devuelve JSON correctamente
 
-    if (data && data.activo) {
-        alert('Valor de activo: ' + data.activo);  // Muestra el valor de "activo"
-    } else {
-        alert('No se pudo obtener datos');
+        if (data && data.activo !== undefined) {
+            alert('Valor de activo: ' + data.activo);
+        } else {
+            alert('No se pudo obtener datos');
+        }
+    } catch (error) {
+        console.error('Error al obtener datos:', error);
+        alert('Hubo un error al conectar con el backend');
     }
-}); 
+}
+
+document.getElementById('getDataBtn').addEventListener('click', pedirDatos);
